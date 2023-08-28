@@ -1,7 +1,7 @@
 itemForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const nombre=productos = document.getElementById('nombre-productos').value;
+    const nombre=productos = (document.getElementById('nombre-productos').value);
     const precio = parseFloat(document.getElementById('precio').value);
     const cantidad = parseInt(document.getElementById('cantidad').value);
 
