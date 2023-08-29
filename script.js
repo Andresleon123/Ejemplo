@@ -1,18 +1,24 @@
-itemForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+const form = document.getElementById("item-form");
+const listaElementos = document.getElementById("LEON");
 
-    const nombre=productos = (document.getElementById('nombre-productos').value);
-    const precio = parseFloat(document.getElementById('precio').value);
-    const cantidad = parseInt(document.getElementById('cantidad').value);
+// Manejador de evento para el envío del formulario
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita que la página se recargue
 
-    const itemRow = document.createElement('div');
-    itemRow.classList.add('item-row');  
-    itemRow.innerHTML = `
-        <strong>${nombre-productos}</strong>
-        <p>Price: $${precio.toFixed(2)}</p>
-        <p>Quantity: ${cantidad}</p>
-    `;
-        LEONContainer.appendChild(itemRow);
+    // Obtiene los valores de los campos de entrada
+    const nombreProducto = document.getElementById("nombre-producto").value;
+    const precio = parseFloat(document.getElementById("precio").value);
+    const cantidad = parseInt(document.getElementById("cantidad").value);
 
-        itemForm.reset();
+    // Crea un elemento de lista y muestra la información
+    const elementoLista = document.createElement("li");
+    elementoLista.textContent = `Producto: ${nombreProducto}, Precio: $${precio}, Cantidad: ${cantidad}`;
+
+    // Agrega el elemento de lista al div
+    listaElementos.appendChild(elementoLista);
+
+    // Limpia los campos del formulario
+    document.getElementById("nombre-producto").value = "";
+    document.getElementById("precio").value = "1200.0";
+    document.getElementById("cantidad").value = "";
 });
